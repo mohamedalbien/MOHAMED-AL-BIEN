@@ -260,7 +260,7 @@
 
     <!-- Section Accueil -->
     <section id="accueil" class="hero">
-        <h1>Bonjour, je suis [Votre Nom]</h1>
+        <h1>Bonjour, je suis [Mohamed Albien]</h1>
         <p>Développeur Web FullStack passionné par la création d'applications modernes et intuitives.</p>
         <a href="#contact" class="btn">Me contacter</a>
     </section>
@@ -341,7 +341,7 @@
     <!-- Pied de page -->
     <footer>
         <p>&copy; 2026 MonPortfolio. Tous droits réservés.</p>
+        <p>&copy; Made By Laaziz Oussama & Zekout Wadie</p>
     </footer>
-
 </body>
 </html>
