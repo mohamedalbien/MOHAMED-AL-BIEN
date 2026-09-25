@@ -334,7 +334,7 @@
         <h2 class="section-title">Contact</h2>
         <p>N'hésitez pas à me contacter pour toute collaboration ou opportunité.</p>
         <p style="margin-top: 1rem; font-weight: 600;">
-            Email : <a href="mailto:votre.email@example.com">votre.email@example.com</a>
+            Email : <a href="mailto:mohamedalbien2005@gmail.com">mohamedalbien2005@gmail.com</a>
         </p>
     </section>
 
