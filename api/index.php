@@ -216,6 +216,183 @@
             font-weight: 600;
         }
 
+        /* Galerie photos */
+        .gallery-filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #ffffff;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .photo-item {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: #cbd5e1;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .photo-item .caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0.5rem 0.75rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: #ffffff;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        .photo-item.hidden {
+            display: none;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 1000;
+            padding: 2rem;
+        }
+
+        .lightbox.open {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: var(--radius);
+        }
+
+        .lightbox-caption {
+            color: #ffffff;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .lb-btn {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: #ffffff;
+            font-size: 1.8rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .lb-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .lb-close { top: 1rem; right: 1rem; }
+        .lb-prev { left: 1rem; top: 50%; }
+        .lb-next { right: 1rem; top: 50%; }
+
+        /* Modules de formation */
+        .year-block {
+            margin-bottom: 2.5rem;
+        }
+
+        .year-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .modules-sub {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin: 1rem 0 0.5rem;
+        }
+
+        .modules-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .module-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 0.6rem 0.9rem;
+        }
+
+        .module-code {
+            background: #eff6ff;
+            color: var(--primary-color);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .module-name {
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .module-hours {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
         /* Contact & Pied de page */
         .contact {
             text-align: center;
@@ -236,9 +413,13 @@
                 flex-direction: column;
                 gap: 1rem;
             }
-            
+
             .hero h1 {
                 font-size: 1.8rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -252,6 +433,9 @@
             <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#projets">Projets</a></li>
+                <li><a href="#photos">Exercices</a></li>
+                <li><a href="#m202">M202</a></li>
+                <li><a href="#modules">Modules</a></li>
                 <li><a href="#competences">Compétences</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -262,6 +446,7 @@
     <section id="accueil" class="hero">
         <h1>Bonjour, je suis [Mohamed Albien]</h1>
         <p>Développeur Web FullStack passionné par la création d'applications modernes et intuitives.</p>
+        <p style="font-size: 1rem;">Étudiant en 2ème année Développement Digital à l'OFPPT</p>
         <a href="#contact" class="btn">Me contacter</a>
     </section>
 
@@ -269,7 +454,7 @@
     <section id="projets">
         <h2 class="section-title">Mes Projets</h2>
         <div class="projects-grid">
-            
+
             <!-- Projet 1 -->
             <div class="project-card">
                 <div class="project-img">Aperçu Projet 1</div>
@@ -316,6 +501,87 @@
         </div>
     </section>
 
+    <!-- Section Photos -->
+    <section id="photos">
+        <h2 class="section-title">Mes Exercices &amp; Travaux Pratiques</h2>
+        <div class="gallery-filters" id="filters"></div>
+        <div class="gallery-grid" id="gallery"></div>
+    </section>
+
+    <!-- Section M202 : Approche agile -->
+    <section id="m202">
+        <h2 class="section-title">M202 · Approche agile</h2>
+        <p style="text-align:center; color: var(--text-muted); margin-bottom: 2rem;">Photos des exercices du module M202 (2ème année)</p>
+        <div class="gallery-filters" id="filtersM202"></div>
+        <div class="gallery-grid" id="galleryM202"></div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-modal="true" role="dialog">
+        <button class="lb-btn lb-close" id="lbClose" aria-label="Fermer">&times;</button>
+        <button class="lb-btn lb-prev" id="lbPrev" aria-label="Précédent">&#8249;</button>
+        <button class="lb-btn lb-next" id="lbNext" aria-label="Suivant">&#8250;</button>
+        <img id="lbImg" src="" alt="">
+        <div class="lightbox-caption" id="lbCaption"></div>
+    </div>
+
+    <!-- Section Modules -->
+    <section id="modules">
+        <h2 class="section-title">Modules de formation</h2>
+        <p style="text-align:center; color: var(--text-muted); margin-bottom: 2rem;">Développement Digital – option Web Full Stack (OFPPT, Technicien Spécialisé)</p>
+
+        <!-- 1ère année -->
+        <div class="year-block">
+            <h3 class="year-title">1ère année (tronc commun)</h3>
+            <p class="modules-sub">Modules techniques</p>
+            <ul class="modules-list">
+                <li class="module-item"><span class="module-code">M101</span><span class="module-name">Se situer au regard du métier et de la démarche de formation</span></li>
+                <li class="module-item"><span class="module-code">M102</span><span class="module-name">Acquérir les bases de l'algorithmique</span></li>
+                <li class="module-item"><span class="module-code">M103</span><span class="module-name">Programmer en Orienté Objet</span></li>
+                <li class="module-item"><span class="module-code">M104</span><span class="module-name">Développer des sites web statiques</span></li>
+                <li class="module-item"><span class="module-code">M105</span><span class="module-name">Programmer en JavaScript</span></li>
+                <li class="module-item"><span class="module-code">M106</span><span class="module-name">Manipuler des bases de données</span></li>
+                <li class="module-item"><span class="module-code">M107</span><span class="module-name">Développer des sites web dynamiques</span></li>
+                <li class="module-item"><span class="module-code">M108</span><span class="module-name">S'initier à la sécurité des systèmes d'information</span></li>
+            </ul>
+            <p class="modules-sub">Enseignement général</p>
+            <ul class="modules-list">
+                <li class="module-item"><span class="module-code">EGTS101</span><span class="module-name">Arabe</span></li>
+                <li class="module-item"><span class="module-code">EGTS102</span><span class="module-name">Français</span></li>
+                <li class="module-item"><span class="module-code">EGTS103</span><span class="module-name">Anglais technique / Espagnol</span></li>
+                <li class="module-item"><span class="module-code">EGTS104</span><span class="module-name">Culture entrepreneuriale – Partie 1</span></li>
+                <li class="module-item"><span class="module-code">EGTS105</span><span class="module-name">Compétences comportementales et sociales</span></li>
+                <li class="module-item"><span class="module-code">EGTS108</span><span class="module-name">Entrepreneuriat – PIE 1</span></li>
+                <li class="module-item"><span class="module-code">EGTSA106</span><span class="module-name">Culture et techniques avancées du numérique</span></li>
+            </ul>
+        </div>
+
+        <!-- 2ème année -->
+        <div class="year-block">
+            <h3 class="year-title">2ème année (option Web Full Stack)</h3>
+            <p class="modules-sub">Modules techniques</p>
+            <ul class="modules-list">
+                <li class="module-item"><span class="module-code">M201</span><span class="module-name">Préparation d'un projet web</span><span class="module-hours">60 h</span></li>
+                <li class="module-item"><span class="module-code">M202</span><span class="module-name">Approche agile</span><span class="module-hours">120 h</span></li>
+                <li class="module-item"><span class="module-code">M203</span><span class="module-name">Gestion des données</span><span class="module-hours">90 h</span></li>
+                <li class="module-item"><span class="module-code">M204</span><span class="module-name">Développement front-end</span><span class="module-hours">90 h</span></li>
+                <li class="module-item"><span class="module-code">M205</span><span class="module-name">Développement back-end</span><span class="module-hours">120 h</span></li>
+                <li class="module-item"><span class="module-code">M206</span><span class="module-name">Création d'une application Cloud native</span><span class="module-hours">90 h</span></li>
+                <li class="module-item"><span class="module-code">M207</span><span class="module-name">Projet de synthèse</span><span class="module-hours">60 h</span></li>
+                <li class="module-item"><span class="module-code">M208</span><span class="module-name">Intégration du milieu professionnel</span><span class="module-hours">160 h</span></li>
+            </ul>
+            <p class="modules-sub">Enseignement général</p>
+            <ul class="modules-list">
+                <li class="module-item"><span class="module-code">EGTS202</span><span class="module-name">Français</span><span class="module-hours">115 h</span></li>
+                <li class="module-item"><span class="module-code">EGTS203</span><span class="module-name">Anglais technique</span><span class="module-hours">50 h</span></li>
+                <li class="module-item"><span class="module-code">EGTS204</span><span class="module-name">Culture entrepreneuriale</span><span class="module-hours">45 h</span></li>
+                <li class="module-item"><span class="module-code">EGTS205</span><span class="module-name">Compétences comportementales</span><span class="module-hours">30 h</span></li>
+                <li class="module-item"><span class="module-code">EGTS208</span><span class="module-name">Entrepreneuriat – PIE 2</span><span class="module-hours">80 h</span></li>
+                <li class="module-item"><span class="module-code">EGTSA206</span><span class="module-name">Culture et techniques avancées du numérique</span><span class="module-hours">30 h</span></li>
+            </ul>
+        </div>
+    </section>
+
     <!-- Section Compétences -->
     <section id="competences">
         <h2 class="section-title">Compétences</h2>
@@ -343,5 +609,119 @@
         <p>&copy; 2026 MonPortfolio. Tous droits réservés.</p>
         <p>&copy; Made By Laaziz Oussama & Zekout Wadie</p>
     </footer>
+
+    <script>
+        /* ============================================================
+           AJOUTER DES PHOTOS :
+           1. Mets tes images dans un dossier "photos" à côté de index.html
+           2. Ajoute une ligne ci-dessous : { src, title, category }
+           ============================================================ */
+        const PHOTOS = [
+            { src: "photos/exercice-01.jpg", title: "Page de présentation", category: "HTML/CSS" },
+            { src: "photos/exercice-02.jpg", title: "Mise en page Flexbox / Grid", category: "HTML/CSS" },
+            { src: "photos/exercice-03.jpg", title: "Manipulation du DOM", category: "JavaScript" },
+            { src: "photos/exercice-04.jpg", title: "To-do list", category: "JavaScript" },
+            { src: "photos/exercice-05.jpg", title: "Formulaire PHP + MySQL", category: "PHP" },
+            { src: "photos/exercice-06.jpg", title: "Composants React", category: "React" },
+            { src: "photos/exercice-07.jpg", title: "Diagramme de classes", category: "UML" },
+            { src: "photos/exercice-08.jpg", title: "Cas d'utilisation", category: "UML" }
+        ];
+
+        const lightbox = document.getElementById("lightbox");
+        const lbImg = document.getElementById("lbImg");
+        const lbCaption = document.getElementById("lbCaption");
+        let ctx = { photos: [], els: [], visible: [], current: 0 };
+
+        // Image de remplacement si le fichier n'existe pas encore
+        const FALLBACK = "data:image/svg+xml;utf8," + encodeURIComponent(
+            "<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><rect width='100%' height='100%' fill='#cbd5e1'/><text x='50%' y='50%' fill='#64748b' font-family='sans-serif' font-size='18' text-anchor='middle'>Photo à ajouter</text></svg>"
+        );
+
+        // Construit une galerie (grille + filtres) à partir d'une liste de photos
+        function initGallery(photos, galleryEl, filtersEl) {
+            const els = photos.map((p, i) => {
+                const btn = document.createElement("button");
+                btn.className = "photo-item";
+                btn.dataset.category = p.category || "";
+                btn.innerHTML = '<img loading="lazy" decoding="async" alt="">' +
+                                '<span class="caption"></span>';
+                const img = btn.querySelector("img");
+                img.src = p.src;
+                img.alt = p.title;
+                img.onerror = () => { img.onerror = null; img.src = FALLBACK; };
+                btn.querySelector(".caption").textContent = p.title;
+                btn.addEventListener("click", () => openLightbox(photos, els, i));
+                galleryEl.appendChild(btn);
+                return btn;
+            });
+
+            const cats = ["Tout", ...new Set(photos.map(p => p.category).filter(Boolean))];
+            cats.forEach((c, idx) => {
+                const b = document.createElement("button");
+                b.className = "filter-btn" + (idx === 0 ? " active" : "");
+                b.textContent = c;
+                b.addEventListener("click", () => {
+                    filtersEl.querySelectorAll(".filter-btn").forEach(x => x.classList.remove("active"));
+                    b.classList.add("active");
+                    els.forEach(el => {
+                        el.classList.toggle("hidden", c !== "Tout" && el.dataset.category !== c);
+                    });
+                });
+                filtersEl.appendChild(b);
+            });
+        }
+
+        function openLightbox(photos, els, index) {
+            const visible = photos.map((p, i) => i).filter(i => !els[i].classList.contains("hidden"));
+            ctx = { photos, els, visible, current: visible.indexOf(index) };
+            showPhoto();
+            lightbox.classList.add("open");
+        }
+
+        function showPhoto() {
+            const i = ctx.visible[ctx.current];
+            const p = ctx.photos[i];
+            lbImg.src = ctx.els[i].querySelector("img").src;
+            lbImg.alt = p.title;
+            lbCaption.textContent = p.title + (p.category ? " · " + p.category : "");
+        }
+
+        function step(d) {
+            ctx.current = (ctx.current + d + ctx.visible.length) % ctx.visible.length;
+            showPhoto();
+        }
+
+        function closeLightbox() { lightbox.classList.remove("open"); }
+
+        document.getElementById("lbClose").addEventListener("click", closeLightbox);
+        document.getElementById("lbPrev").addEventListener("click", () => step(-1));
+        document.getElementById("lbNext").addEventListener("click", () => step(1));
+        lightbox.addEventListener("click", e => { if (e.target === lightbox) closeLightbox(); });
+        document.addEventListener("keydown", e => {
+            if (!lightbox.classList.contains("open")) return;
+            if (e.key === "Escape") closeLightbox();
+            if (e.key === "ArrowLeft") step(-1);
+            if (e.key === "ArrowRight") step(1);
+        });
+
+        /* ============================================================
+           M202 · APPROCHE AGILE (2ème année) : photos des exercices
+           1. Mets tes images dans le dossier "photos/m202/"
+           2. Ajoute une ligne ci-dessous : { src, title, category }
+           ============================================================ */
+        const PHOTOS_M202 = [
+            { src: "/images/M202/WhatsApp Image 2026-10-01 at 16.18.19.jpeg", title: "Diagramme PERT", category: "Waterfall" },
+            { src: "/images/M202/WhatsApp Image 2026-10-01 at 16.18.24.jpeg", title: "Diagramme de Gantt", category: "Waterfall" },
+            { src: "/images/M202/WhatsApp Image 2026-10-01 at 16.18.25.jpeg", title: "Diagramme PERT", category: "Waterfall" },
+            { src: "/images/M202/WhatsApp Imag 2026-10-01 at 16.18.24.jpeg", title: "Diagramme PERT", category: "Waterfall" },
+            { src: "/images/M202/WhatsApp Image 2026-10-01 at 16.18.23.jpeg", title: "QCM", category: "Waterfall" },
+            { src: "photos/m202/ex-06.jpg", title: "Diagramme PERT", category: "Planification" },
+            { src: "photos/m202/ex-07.jpg", title: "Diagramme de Gantt", category: "Planification" },
+            { src: "photos/m202/ex-08.jpg", title: "Rétrospective", category: "Scrum" }
+        ];
+
+        initGallery(PHOTOS, document.getElementById("gallery"), document.getElementById("filters"));
+        initGallery(PHOTOS_M202, document.getElementById("galleryM202"), document.getElementById("filtersM202"));
+    </script>
 </body>
 </html>
