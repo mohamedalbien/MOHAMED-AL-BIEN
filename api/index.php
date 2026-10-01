@@ -715,8 +715,8 @@
             { src: "/images/M202/WhatsApp Image 2026-10-01 at 16.18.25.jpeg", title: "Diagramme PERT", category: "Waterfall" },
             { src: "/images/M202/WhatsApp Imag 2026-10-01 at 16.18.24.jpeg", title: "Diagramme PERT", category: "Waterfall" },
             { src: "/images/M202/WhatsApp Image 2026-10-01 at 16.18.23.jpeg", title: "QCM", category: "Waterfall" },
-            { src: "photos/m202/ex-06.jpg", title: "Diagramme PERT", category: "Planification" },
-            { src: "photos/m202/ex-07.jpg", title: "Diagramme de Gantt", category: "Planification" },
+            { src: "/images/M202/WhatsApp Image 2026-10-01 at 19.20.42.jpeg", title: "Diagramme PERT", category: "Waterfall" },
+            { src: "/images/M202/WhatsApp Image 2026-10-01 at 19.20.26.jpeg", title: "Cycle en V", category: "Waterfall" },
             { src: "photos/m202/ex-08.jpg", title: "Rétrospective", category: "Scrum" }
         ];
 
