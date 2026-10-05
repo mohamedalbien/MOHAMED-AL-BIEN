@@ -444,7 +444,7 @@
 
     <!-- Section Accueil -->
     <section id="accueil" class="hero">
-        <h1>Bonjour, je suis [Mohamed Albien]</h1>
+        <h1>Bonjour, je suis Mohamed Albien</h1>
         <p>Développeur Web FullStack passionné par la création d'applications modernes et intuitives.</p>
         <p style="font-size: 1rem;">Étudiant en 2ème année Développement Digital à l'OFPPT</p>
         <a href="#contact" class="btn">Me contacter</a>
@@ -511,7 +511,7 @@
     <!-- Section M202 : Approche agile -->
     <section id="m202">
         <h2 class="section-title">M202 · Approche agile</h2>
-        <p style="text-align:center; color: var(--text-muted); margin-bottom: 2rem;">Photos des exercices du module M202 (2ème année)</p>
+        <p style="text-align:center; color: var(--text-muted); margin-bottom: 2rem;">Photos des exercices du module M202 (2ème année) - Atelier 1</p>
         <div class="gallery-filters" id="filtersM202"></div>
         <div class="gallery-grid" id="galleryM202"></div>
     </section>
@@ -611,20 +611,24 @@
     </footer>
 
     <script>
-        /* ============================================================
-           AJOUTER DES PHOTOS :
-           1. Mets tes images dans un dossier "photos" à côté de index.html
-           2. Ajoute une ligne ci-dessous : { src, title, category }
-           ============================================================ */
         const PHOTOS = [
-            { src: "photos/exercice-01.jpg", title: "Page de présentation", category: "HTML/CSS" },
-            { src: "photos/exercice-02.jpg", title: "Mise en page Flexbox / Grid", category: "HTML/CSS" },
-            { src: "photos/exercice-03.jpg", title: "Manipulation du DOM", category: "JavaScript" },
-            { src: "photos/exercice-04.jpg", title: "To-do list", category: "JavaScript" },
-            { src: "photos/exercice-05.jpg", title: "Formulaire PHP + MySQL", category: "PHP" },
-            { src: "photos/exercice-06.jpg", title: "Composants React", category: "React" },
-            { src: "photos/exercice-07.jpg", title: "Diagramme de classes", category: "UML" },
-            { src: "photos/exercice-08.jpg", title: "Cas d'utilisation", category: "UML" }
+            { src: "/images/ateliers/atelier1/pert-01.jpeg", title: "Page de présentation", category: "HTML/CSS" },
+            { src: "/images/ateliers/atelier1/gantt-01.jpeg", title: "Mise en page Flexbox / Grid", category: "HTML/CSS" },
+            { src: "/images/ateliers/atelier1/pert-02.jpeg", title: "Manipulation du DOM", category: "JavaScript" },
+            { src: "/images/ateliers/atelier1/pert-03.jpeg", title: "To-do list", category: "JavaScript" },
+            { src: "/images/ateliers/atelier1/qcm-01.jpeg", title: "Formulaire PHP + MySQL", category: "PHP" },
+            { src: "/images/ateliers/atelier1/pert-04.jpeg", title: "Composants React", category: "React" },
+            { src: "/images/ateliers/atelier1/cycle-v.jpeg", title: "Diagramme de classes", category: "UML" }
+        ];
+
+        const PHOTOS_M202 = [
+            { src: "/images/ateliers/atelier1/pert-01.jpeg", title: "Diagramme PERT - Exercice 1", category: "Waterfall" },
+            { src: "/images/ateliers/atelier1/gantt-01.jpeg", title: "Diagramme de Gantt", category: "Waterfall" },
+            { src: "/images/ateliers/atelier1/pert-02.jpeg", title: "Diagramme PERT - Exercice 2", category: "Waterfall" },
+            { src: "/images/ateliers/atelier1/pert-03.jpeg", title: "Diagramme PERT - Exercice 3", category: "Waterfall" },
+            { src: "/images/ateliers/atelier1/qcm-01.jpeg", title: "QCM", category: "Waterfall" },
+            { src: "/images/ateliers/atelier1/pert-04.jpeg", title: "Diagramme PERT - Final", category: "Waterfall" },
+            { src: "/images/ateliers/atelier1/cycle-v.jpeg", title: "Cycle en V", category: "Waterfall" }
         ];
 
         const lightbox = document.getElementById("lightbox");
@@ -703,22 +707,6 @@
             if (e.key === "ArrowLeft") step(-1);
             if (e.key === "ArrowRight") step(1);
         });
-
-        /* ============================================================
-           M202 · APPROCHE AGILE (2ème année) : photos des exercices
-           1. Mets tes images dans le dossier "photos/m202/"
-           2. Ajoute une ligne ci-dessous : { src, title, category }
-           ============================================================ */
-        const PHOTOS_M202 = [
-            { src: "/images/M202/WhatsApp Image 2026-10-01 at 16.18.19.jpeg", title: "Diagramme PERT", category: "Waterfall" },
-            { src: "/images/M202/WhatsApp Image 2026-10-01 at 16.18.24.jpeg", title: "Diagramme de Gantt", category: "Waterfall" },
-            { src: "/images/M202/WhatsApp Image 2026-10-01 at 16.18.25.jpeg", title: "Diagramme PERT", category: "Waterfall" },
-            { src: "/images/M202/WhatsApp Imag 2026-10-01 at 16.18.24.jpeg", title: "Diagramme PERT", category: "Waterfall" },
-            { src: "/images/M202/WhatsApp Image 2026-10-01 at 16.18.23.jpeg", title: "QCM", category: "Waterfall" },
-            { src: "/images/M202/WhatsApp Image 2026-10-01 at 19.20.42.jpeg", title: "Diagramme PERT", category: "Waterfall" },
-            { src: "/images/M202/WhatsApp Image 2026-10-01 at 19.20.26.jpeg", title: "Cycle en V", category: "Waterfall" },
-            { src: "photos/m202/ex-08.jpg", title: "Rétrospective", category: "Scrum" }
-        ];
 
         initGallery(PHOTOS, document.getElementById("gallery"), document.getElementById("filters"));
         initGallery(PHOTOS_M202, document.getElementById("galleryM202"), document.getElementById("filtersM202"));
