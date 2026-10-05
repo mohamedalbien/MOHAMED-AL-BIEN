@@ -288,6 +288,41 @@
             display: none;
         }
 
+        /* Sous-sections Atelier */
+        .atelier-block {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .atelier-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .atelier-title {
+            font-size: 1.35rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .empty-atelier-msg {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+            background: var(--bg-color);
+            border: 2px dashed var(--border-color);
+            border-radius: var(--radius);
+            font-style: italic;
+        }
+
         /* Lightbox */
         .lightbox {
             position: fixed;
@@ -434,7 +469,7 @@
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#projets">Projets</a></li>
                 <li><a href="#photos">Exercices</a></li>
-                <li><a href="#m202">M202</a></li>
+                <li><a href="#m202">M202 (Ateliers)</a></li>
                 <li><a href="#modules">Modules</a></li>
                 <li><a href="#competences">Compétences</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -501,19 +536,55 @@
         </div>
     </section>
 
-    <!-- Section Photos -->
+    <!-- Section Photos Exercices Générales -->
     <section id="photos">
         <h2 class="section-title">Mes Exercices &amp; Travaux Pratiques</h2>
         <div class="gallery-filters" id="filters"></div>
         <div class="gallery-grid" id="gallery"></div>
     </section>
 
-    <!-- Section M202 : Approche agile -->
+    <!-- Section M202 : Approche agile & Ateliers -->
     <section id="m202">
-        <h2 class="section-title">M202 · Approche agile</h2>
-        <p style="text-align:center; color: var(--text-muted); margin-bottom: 2rem;">Photos des exercices du module M202 (2ème année) - Atelier 1</p>
-        <div class="gallery-filters" id="filtersM202"></div>
-        <div class="gallery-grid" id="galleryM202"></div>
+        <h2 class="section-title">M202 · Approche Agile</h2>
+        <p style="text-align:center; color: var(--text-muted); margin-bottom: 2.5rem;">
+            Travaux pratiques et exercices organisés par atelier
+        </p>
+
+        <!-- Atelier 1 -->
+        <div class="atelier-block">
+            <div class="atelier-header">
+                <h3 class="atelier-title">Atelier 1 : Diagrammes &amp; Planification</h3>
+            </div>
+            <div class="gallery-filters" id="filtersAtelier1"></div>
+            <div class="gallery-grid" id="galleryAtelier1"></div>
+        </div>
+
+        <!-- Atelier 2 -->
+        <div class="atelier-block">
+            <div class="atelier-header">
+                <h3 class="atelier-title">Atelier 2</h3>
+            </div>
+            <div class="gallery-filters" id="filtersAtelier2"></div>
+            <div class="gallery-grid" id="galleryAtelier2"></div>
+        </div>
+
+        <!-- Atelier 3 -->
+        <div class="atelier-block">
+            <div class="atelier-header">
+                <h3 class="atelier-title">Atelier 3</h3>
+            </div>
+            <div class="gallery-filters" id="filtersAtelier3"></div>
+            <div class="gallery-grid" id="galleryAtelier3"></div>
+        </div>
+
+        <!-- Atelier 4 -->
+        <div class="atelier-block">
+            <div class="atelier-header">
+                <h3 class="atelier-title">Atelier 4</h3>
+            </div>
+            <div class="gallery-filters" id="filtersAtelier4"></div>
+            <div class="gallery-grid" id="galleryAtelier4"></div>
+        </div>
     </section>
 
     <!-- Lightbox -->
@@ -611,6 +682,7 @@
     </footer>
 
     <script>
+        // Exercices généraux
         const PHOTOS = [
             { src: "/images/ateliers/atelier1/pert-01.jpeg", title: "Page de présentation", category: "HTML/CSS" },
             { src: "/images/ateliers/atelier1/gantt-01.jpeg", title: "Mise en page Flexbox / Grid", category: "HTML/CSS" },
@@ -621,7 +693,8 @@
             { src: "/images/ateliers/atelier1/cycle-v.jpeg", title: "Diagramme de classes", category: "UML" }
         ];
 
-        const PHOTOS_M202 = [
+        // Photos Atelier 1
+        const PHOTOS_ATELIER_1 = [
             { src: "/images/ateliers/atelier1/pert-01.jpeg", title: "Diagramme PERT - Exercice 1", category: "Waterfall" },
             { src: "/images/ateliers/atelier1/gantt-01.jpeg", title: "Diagramme de Gantt", category: "Waterfall" },
             { src: "/images/ateliers/atelier1/pert-02.jpeg", title: "Diagramme PERT - Exercice 2", category: "Waterfall" },
@@ -631,18 +704,31 @@
             { src: "/images/ateliers/atelier1/cycle-v.jpeg", title: "Cycle en V", category: "Waterfall" }
         ];
 
+        // Ateliers suivants (vides)
+        const PHOTOS_ATELIER_2 = [];
+        const PHOTOS_ATELIER_3 = [];
+        const PHOTOS_ATELIER_4 = [];
+
         const lightbox = document.getElementById("lightbox");
         const lbImg = document.getElementById("lbImg");
         const lbCaption = document.getElementById("lbCaption");
         let ctx = { photos: [], els: [], visible: [], current: 0 };
 
-        // Image de remplacement si le fichier n'existe pas encore
+        // Fallback d'image absente
         const FALLBACK = "data:image/svg+xml;utf8," + encodeURIComponent(
             "<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><rect width='100%' height='100%' fill='#cbd5e1'/><text x='50%' y='50%' fill='#64748b' font-family='sans-serif' font-size='18' text-anchor='middle'>Photo à ajouter</text></svg>"
         );
 
-        // Construit une galerie (grille + filtres) à partir d'une liste de photos
         function initGallery(photos, galleryEl, filtersEl) {
+            if (!galleryEl) return;
+
+            // Message si l'atelier est vide
+            if (!photos || photos.length === 0) {
+                if (filtersEl) filtersEl.style.display = "none";
+                galleryEl.innerHTML = '<div class="empty-atelier-msg" style="grid-column: 1 / -1;">Aucun contenu pour le moment dans cet atelier.</div>';
+                return;
+            }
+
             const els = photos.map((p, i) => {
                 const btn = document.createElement("button");
                 btn.className = "photo-item";
@@ -659,20 +745,22 @@
                 return btn;
             });
 
-            const cats = ["Tout", ...new Set(photos.map(p => p.category).filter(Boolean))];
-            cats.forEach((c, idx) => {
-                const b = document.createElement("button");
-                b.className = "filter-btn" + (idx === 0 ? " active" : "");
-                b.textContent = c;
-                b.addEventListener("click", () => {
-                    filtersEl.querySelectorAll(".filter-btn").forEach(x => x.classList.remove("active"));
-                    b.classList.add("active");
-                    els.forEach(el => {
-                        el.classList.toggle("hidden", c !== "Tout" && el.dataset.category !== c);
+            if (filtersEl) {
+                const cats = ["Tout", ...new Set(photos.map(p => p.category).filter(Boolean))];
+                cats.forEach((c, idx) => {
+                    const b = document.createElement("button");
+                    b.className = "filter-btn" + (idx === 0 ? " active" : "");
+                    b.textContent = c;
+                    b.addEventListener("click", () => {
+                        filtersEl.querySelectorAll(".filter-btn").forEach(x => x.classList.remove("active"));
+                        b.classList.add("active");
+                        els.forEach(el => {
+                            el.classList.toggle("hidden", c !== "Tout" && el.dataset.category !== c);
+                        });
                     });
+                    filtersEl.appendChild(b);
                 });
-                filtersEl.appendChild(b);
-            });
+            }
         }
 
         function openLightbox(photos, els, index) {
@@ -708,8 +796,12 @@
             if (e.key === "ArrowRight") step(1);
         });
 
+        // Initialisation de toutes les galeries
         initGallery(PHOTOS, document.getElementById("gallery"), document.getElementById("filters"));
-        initGallery(PHOTOS_M202, document.getElementById("galleryM202"), document.getElementById("filtersM202"));
+        initGallery(PHOTOS_ATELIER_1, document.getElementById("galleryAtelier1"), document.getElementById("filtersAtelier1"));
+        initGallery(PHOTOS_ATELIER_2, document.getElementById("galleryAtelier2"), document.getElementById("filtersAtelier2"));
+        initGallery(PHOTOS_ATELIER_3, document.getElementById("galleryAtelier3"), document.getElementById("filtersAtelier3"));
+        initGallery(PHOTOS_ATELIER_4, document.getElementById("galleryAtelier4"), document.getElementById("filtersAtelier4"));
     </script>
 </body>
 </html>
