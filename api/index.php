@@ -695,8 +695,9 @@
 
         // Photos Atelier 1
         const PHOTOS_ATELIER_1 = [
+            { src: "/images/ateliers/atelier1/Diagramme%20de%20gant.png", title: "Diagramme de Gantt", category: "Waterfall" },
             { src: "/images/ateliers/atelier1/pert-01.jpeg", title: "Diagramme PERT - Exercice 1", category: "Waterfall" },
-            { src: "/images/ateliers/atelier1/gantt-01.jpeg", title: "Diagramme de Gantt", category: "Waterfall" },
+            { src: "/images/ateliers/atelier1/gantt-01.jpeg", title: "Diagramme de Gantt (Manuscrit)", category: "Waterfall" },
             { src: "/images/ateliers/atelier1/pert-02.jpeg", title: "Diagramme PERT - Exercice 2", category: "Waterfall" },
             { src: "/images/ateliers/atelier1/pert-03.jpeg", title: "Diagramme PERT - Exercice 3", category: "Waterfall" },
             { src: "/images/ateliers/atelier1/qcm-01.jpeg", title: "QCM", category: "Waterfall" },
