@@ -706,7 +706,10 @@
         ];
 
         // Ateliers suivants (vides)
-        const PHOTOS_ATELIER_2 = [];
+        const PHOTOS_ATELIER_2 = [
+            {src:"/images/ateliers/atelier2/Partie 1/Partie-1-part-1.jpeg",title: "Questions de partie 1",category: "Agile"},
+            {src:"/images/ateliers/atelier2/Partie 1/Partie-1-part-2.jpeg",title: "Questions de partie 1",category: "Agile"},
+        ];
         const PHOTOS_ATELIER_3 = [];
         const PHOTOS_ATELIER_4 = [];
 
