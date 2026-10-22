@@ -712,6 +712,10 @@
         ];
         const PHOTOS_ATELIER_3 = [];
         const PHOTOS_ATELIER_4 = [];
+        const PHOTOS_ATELIER_5 = [
+            {src:"/images/ateliers/atelier5/partie2/partie-2.jpeg",title: "Questions de partie 2",category: "Github"},
+            {src:"/images/ateliers/atelier5/partie3/partie-3.jpeg",title: "Questions de partie 3",category: "Github"},
+        ];
 
         const lightbox = document.getElementById("lightbox");
         const lbImg = document.getElementById("lbImg");
