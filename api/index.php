@@ -585,6 +585,13 @@
             <div class="gallery-filters" id="filtersAtelier4"></div>
             <div class="gallery-grid" id="galleryAtelier4"></div>
         </div>
+        <div class="atelier-block">
+            <div class="atelier-header">
+                <h3 class="atelier-title">Atelier 5</h3>
+            </div>
+            <div class="gallery-filters" id="filtersAtelier5"></div>
+            <div class="gallery-grid" id="galleryAtelier5"></div>
+        </div>
     </section>
 
     <!-- Lightbox -->
