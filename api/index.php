@@ -714,8 +714,8 @@
 
         // Ateliers suivants (vides)
         const PHOTOS_ATELIER_2 = [
-            {src:"/images/ateliers/atelier2/Partie 1/Partie-1-part-1.jpeg",title: "Questions de partie 1",category: "Agile"},
-            {src:"/images/ateliers/atelier2/Partie 1/Partie-1-part-2.jpeg",title: "Questions de partie 1",category: "Agile"},
+            {src:"/images/ateliers/atelier2/Partie%201/Partie-1-part-1.jpeg",title: "Questions de partie 1",category: "Agile"},
+            {src:"/images/ateliers/atelier2/Partie%201/Partie-1-part-2.jpeg",title: "Questions de partie 1",category: "Agile"},
         ];
         const PHOTOS_ATELIER_3 = [];
         const PHOTOS_ATELIER_4 = [];
@@ -817,6 +817,7 @@
         initGallery(PHOTOS_ATELIER_2, document.getElementById("galleryAtelier2"), document.getElementById("filtersAtelier2"));
         initGallery(PHOTOS_ATELIER_3, document.getElementById("galleryAtelier3"), document.getElementById("filtersAtelier3"));
         initGallery(PHOTOS_ATELIER_4, document.getElementById("galleryAtelier4"), document.getElementById("filtersAtelier4"));
+        initGallery(PHOTOS_ATELIER_5, document.getElementById("galleryAtelier5"), document.getElementById("filtersAtelier5"));
     </script>
 </body>
 </html>
