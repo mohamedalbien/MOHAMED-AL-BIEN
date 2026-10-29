@@ -734,7 +734,11 @@
             {src:"/images/ateliers/atelier2/Partie%201/Partie-1-part-1.jpeg",title: "Questions de partie 1",category: "Agile"},
             {src:"/images/ateliers/atelier2/Partie%201/Partie-1-part-2.jpeg",title: "Questions de partie 1",category: "Agile"},
         ];
-        const PHOTOS_ATELIER_3 = [];
+        const PHOTOS_ATELIER_3 = [
+            { src: "/images/ateliers/atelier3/Part-1.jpeg", title: "Atelier 3 - Partie 1", category: "Atelier 3" },
+            { src: "/images/ateliers/atelier3/Part-2.jpeg", title: "Atelier 3 - Partie 2", category: "Atelier 3" },
+            { src: "/images/ateliers/atelier3/Part-3.jpeg", title: "Atelier 3 - Partie 3", category: "Atelier 3" }
+        ];
         const PHOTOS_ATELIER_4 = [];
         const PHOTOS_ATELIER_5 = [
             {src:"/images/ateliers/atelier5/partie2/partie-2.jpeg",title: "Questions de partie 2",category: "Github"},
