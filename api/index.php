@@ -313,6 +313,22 @@
             font-weight: 700;
         }
 
+        .atelier-link {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 0.55rem 1rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .atelier-link:hover {
+            background-color: var(--primary-hover);
+            color: #ffffff;
+            text-decoration: none;
+        }
+
         .empty-atelier-msg {
             text-align: center;
             padding: 3rem 1rem;
@@ -581,6 +597,7 @@
         <div class="atelier-block">
             <div class="atelier-header">
                 <h3 class="atelier-title">Atelier 4</h3>
+                <a class="atelier-link" href="https://websitenew-weld.vercel.app/" target="_blank" rel="noopener noreferrer">Ouvrir le projet</a>
             </div>
             <div class="gallery-filters" id="filtersAtelier4"></div>
             <div class="gallery-grid" id="galleryAtelier4"></div>
@@ -714,8 +731,8 @@
 
         // Ateliers suivants (vides)
         const PHOTOS_ATELIER_2 = [
-            {src:"/images/ateliers/atelier2/Partie 1/Partie-1-part-1.jpeg",title: "Questions de partie 1",category: "Agile"},
-            {src:"/images/ateliers/atelier2/Partie 1/Partie-1-part-2.jpeg",title: "Questions de partie 1",category: "Agile"},
+            {src:"/images/ateliers/atelier2/Partie%201/Partie-1-part-1.jpeg",title: "Questions de partie 1",category: "Agile"},
+            {src:"/images/ateliers/atelier2/Partie%201/Partie-1-part-2.jpeg",title: "Questions de partie 1",category: "Agile"},
         ];
         const PHOTOS_ATELIER_3 = [];
         const PHOTOS_ATELIER_4 = [];
@@ -817,6 +834,7 @@
         initGallery(PHOTOS_ATELIER_2, document.getElementById("galleryAtelier2"), document.getElementById("filtersAtelier2"));
         initGallery(PHOTOS_ATELIER_3, document.getElementById("galleryAtelier3"), document.getElementById("filtersAtelier3"));
         initGallery(PHOTOS_ATELIER_4, document.getElementById("galleryAtelier4"), document.getElementById("filtersAtelier4"));
+        initGallery(PHOTOS_ATELIER_5, document.getElementById("galleryAtelier5"), document.getElementById("filtersAtelier5"));
     </script>
 </body>
 </html>
